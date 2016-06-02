@@ -5,7 +5,7 @@
 Data that can be used to test other scripts.
 }
 \description{
-This script creates data in the form of a \emph{dark} object from specified times, parameters, and level of variability. It is used for testing and developing other scripts. 
+This script creates data in the form of a \emph{dark} object from specified times, parameters, and level of variability. It is used for testing and developing other scripts. Presently only the seven parameter model and its subsets are implemented. 
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
@@ -62,7 +62,7 @@ The parameters values chosen as defaults are entirely arbitrary. The sixth param
 L. Patryas, N. R. Parry, D. Carden, D. H. Baker, J. M. Kelly, T. Aslam, and I. J. Murray. Assessment of age changes and repeatability for computer-based rod dark adaptation. Graefe's Archive for Clinical and Experimental Ophthalmology, pages 1-7, 2013.
 }
 \author{
-Dr Jeremiah MF Kelly
+Jeremiah MF Kelly
 
 Faculty of Life Sciences, The University of Manchester, M13 9PL, UK
 }

@@ -59,7 +59,7 @@ B. Efron. Nonparametric estimates of standard error: The jackknife, the bootstra
 }
 \author{
 %%  ~~who you are~~
-Dr Jeremiah MF Kelly
+Jeremiah MF Kelly
 
 Faculty of Life Sciences, The University of Manchester, M13 9PL, UK
 }
@@ -76,11 +76,11 @@ Faculty of Life Sciences, The University of Manchester, M13 9PL, UK
 set.seed(1234)
 Time<- seq(0,20)
 tmp<- TestData(Time)
-\dontrun{P<-Start(tmp,1000)}
-\dontrun{MSC<-ModelSelect(tmp, P)}
-\dontrun{tmp2<-BestFit(tmp, MSC)}
-\dontrun{tmp3<-MultiStart(tmp2,100)}
-\dontrun{BootDark(tmp3,150)} 
+P<-Start(tmp,1000)
+MSC<-ModelSelect(tmp, P)
+tmp2<-BestFit(tmp, MSC)
+tmp3<-MultiStart(tmp2,10)
+BootDark(tmp3,50)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

@@ -1,32 +1,34 @@
-\name{P5c}
-\alias{P5c}
+\name{P6c}
+\alias{P6c}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Five parameter model.
+%%  ~~function to do ... ~~
+A six parameter model
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-The five parameter model. An exponential decay followed by a linear phase. 
-}
+An exponential decay followed by a second exponential decay.}
 \usage{
-P5c(a,X)
+P6c(a, X)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{a}{
 %%     ~~Describe \code{x} here~~
- An array of parameters;
+An array of parameters;
   %% insert table here
-  \tabular{lcc}{
+  \tabular{llc}{
 a: \tab parameter  \tab Units\cr\cr
-a[1]: \tab cone threshold \tab (log lum)\cr
-a[2]: \tab cone coefficient \tab (log lum)\cr
-a[3]: \tab cone time constant  \tab (minutes)\cr
-a[4]: \tab S2  \tab (log lum / minute)\cr
-a[5]: \tab alpha point  \tab (minutes)\cr
-}
-}
- \item{X}{ The times when the model predicts thresholds. 
+a[1]: \tab absolute (rod) threshold  \tab (log lum)\cr
+a[2]: \tab cone coefficient \tab (log10 lum)\cr
+a[3]: \tab 1/cone time constant  \tab (1/minutes)\cr
+a[4]: \tab alpha point  \tab (minutes)\cr
+a[5]: \tab absolute threshold offset \tab (log10 lum)\cr
+a[6]: \tab 1/rod time constant  \tab (1/minutes)\cr
+} 
+
+note that the cone threshold is a[1] + a[5] log10(lum)}
+
+ \item{X}{ The times in minutes when the model predicts thresholds. 
 %%     ~~Describe \code{x} here~~
 }
 }
@@ -36,8 +38,7 @@ This function has three roles, to calculate the thresholds for given parameters 
 
 The use of the function \code{H} rather than an impulse function gives a three-fold increase is speed for the \code{optim} function.
 }
-\value{
-%%  ~Describe the value returned
+\value{The output depends upon the input. 
 If the input is an array of length \code{1L} or a \code{boolean} then a list is returned 
 %%  ~Describe the value returned
 %%  If it is a LIST, use
@@ -69,22 +70,21 @@ Faculty of Life Sciences, The University of Manchester, M13 9PL, UK
 
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
-\code{\link{P3}},\code{\link{P6c}},\code{\link{P7c}}}
+\code{\link{P3}},\code{\link{P5c}},\code{\link{P6c}}
+}
 \examples{
 set.seed(1234)
 x <- 0:20
-a <- c(-1.00,  1.00,  1.00, -0.24,  6.00,  0.20, 13.00)
-tmp <- TestData(x, a)
-y <- tmp$resid
+a <- c(-2, 2, 1/2, 10, 3, 1/8)
 %% ~~~~~~~~~~~~~~~~~~~~~
-P5c(TRUE)
+# P6c(TRUE)
 # Describes the model
 
-P5c(a)
+# P6c(a)
 # The sum of squared residuals
 
-P5c(a,x)
-# The fitted thresholds for given parameters 'theta' and times 'x'
+# P6c(a,x)
+# The fitted thresholds for given parameters 'a' and times 'x'
 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

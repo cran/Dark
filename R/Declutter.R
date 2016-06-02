@@ -1,3 +1,5 @@
+#' @export 
+
 Declutter <- function(tmp, delta) {
 	# function that takes data from early experiments where double points are recorded
 	if (missing(delta)) 
@@ -18,7 +20,7 @@ Declutter <- function(tmp, delta) {
 		y <- tmp$thrs[idx]
 
 	} else {
-		idx <- c(0, diff(tmp[, 1])) > delta
+		idx <- c(1, diff(tmp[, 1])) > delta
 		x <- tmp[idx, 1]
 		y <- tmp[idx, 2]
 
